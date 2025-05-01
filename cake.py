@@ -1,0 +1,51 @@
+class Cake:
+    def __init__(self, name, flavor, price):
+        self.name = name
+        self.flavor = flavor
+        self.price = price
+
+    def __str__(self):
+        return f"Cake: {self.name}, Flavor: {self.flavor}, Price: ${self.price:.2f}"
+
+
+class CakeManagement:
+    def __init__(self):
+        self.cakes = []
+
+    def add_cake(self, name, flavor, price):
+        cake = Cake(name, flavor, price)
+        self.cakes.append(cake)
+        print(f"Cake '{name}' added successfully!")
+
+    def list_cakes(self):
+        if not self.cakes:
+            print("No cakes available.")
+        else:
+            for cake in self.cakes:
+                print(cake)
+
+    def remove_cake(self, name):
+        for cake in self.cakes:
+            if cake.name == name:
+                self.cakes.remove(cake)
+                print(f"Cake '{name}' removed successfully!")
+                return
+        print(f"Cake '{name}' not found.")
+
+    def find_cake(self, name):
+        for cake in self.cakes:
+            if cake.name == name:
+                print(cake)
+                return
+        print(f"Cake '{name}' not found.")
+
+
+# Example usage
+if __name__ == "__main__":
+    manager = CakeManagement()
+    manager.add_cake("Chocolate Delight", "Chocolate", 15.99)
+    manager.add_cake("Vanilla Dream", "Vanilla", 12.99)
+    manager.list_cakes()
+    manager.find_cake("Chocolate Delight")
+    manager.remove_cake("Vanilla Dream")
+    manager.list_cakes()
