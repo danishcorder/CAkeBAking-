@@ -1,7 +1,7 @@
 class Cake:
     def __init__(self, name, flavor, price):
-        self.name = name
-        self.flavor = flavor
+        self.name = 
+        self.flavor = 
         self.price = price
 
     def __str__(self):
